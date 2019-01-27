@@ -1,0 +1,43 @@
+html{
+    background-color:lightcyan;
+    font:American Typewriter;
+}
+h1{
+    color:blue;
+    text-align:center;
+    background-color:white;
+    border-radius:25px;
+    text-weight:300%
+}
+
+header p{
+    color:blue;
+}
+section>h2{
+    color:green;
+}
+
+section:first-child ul {
+    text-decoration: underline;
+    color: blue;
+}
+
+#wrapper section:nth-child(2){
+    background-color:white;
+}
+
+#wrapper section:nth-child(5)>h2{
+    text-align:center;
+}
+
+img{
+transform:rotate(10deg);
+}
+hr{
+    border:1px solid white;
+
+}
+wrapper section:nth-child(6)>table{
+    color:blue;
+
+}
