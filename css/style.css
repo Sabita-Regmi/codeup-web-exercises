@@ -1,0 +1,43 @@
+
+html{
+    font-family: 'Roboto', sans-serif;
+
+}
+
+.fancy-header {
+    color:purple;
+    text-decoration: underline;
+}
+h1{
+    text-align:center;
+}
+h2{
+    text-decoration:underline;
+    color:green;
+}
+html{
+    background-color:grey;
+    background-image:url(https://cdn.pixabay.com/photo/2016/04/15/04/02/water-1330252__340.jpg);
+}
+ul{
+    list-style:square;
+}
+
+ .main-table{
+    border:2px solid black;
+     font-size:110%;
+}
+ a:link{
+     color:orange;
+ }
+ a:hover{
+     color:green;
+ }
+ a:visited{
+     color:red;
+
+ }
+ td{
+     padding:10px;
+ }
+
