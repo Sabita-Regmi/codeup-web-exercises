@@ -9,7 +9,7 @@
  * > sayHello("codeup") // returns "Hello, codeup!"
  */
  function sayHello(name){
- console.log("Hello "+name+ "!" );
+ return "Hello "+name+ "!" ;
  }
 
 
@@ -22,6 +22,7 @@
  *
  * console.log 'helloMessage' to check your work
  */
+ console.log(sayHello("megan"));
  sayHello("Sabita");
  var helloMessage=sayHello("Sabita");
  console.log(helloMessage);
@@ -36,9 +37,11 @@
 
 // Don't modify the following line, it generates a random number between 1 and 3
 // and stores it in a variable named random
-var random = Math.floor((Math.random() * 3) + 1);
+
 var myName="Sabita";
 sayHello(myName);
+
+var random = Math.floor((Math.random() * 3) + 1);
 
 
 /**
@@ -96,7 +99,8 @@ calculateTip(0.15, 33.42);
  */
 var billTotal=+prompt("what is the bill total?");
 var tipPercentage=+prompt("what is the percentage of tip?");
-alert(billTotal*tipPercentage);
+alert(billTotal*tipPercentage.toFixed(2));
+// alert("The total tip is " + calculateTip(tipPercentage/100,totalBill));
 
 /**
  * TODO:
@@ -116,4 +120,4 @@ function applyDiscount(priceBeforeDiscount,discountPercentage){
     return (priceBeforeDiscount-(discountPercentage*priceBeforeDiscount));
 }
 var price=applyDiscount(45.99,0.12);
-console.log(price);
+console.log(price.toFixed(2));
