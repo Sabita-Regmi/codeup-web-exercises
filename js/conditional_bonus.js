@@ -3,7 +3,7 @@
 
 
 function makeJustinMessage(input) {
-    if(!isNaN(input) || input==" "){
+    if(!isNaN(input) || input.length==0){
         return"INVALID INPUT";
     }else{
         if (input=== "justin") {
@@ -32,7 +32,7 @@ function traffic(input) {
     } else if (input== "green") {
         return "GO ahead";
     } else if (input =="orange") {
-        return "Be prepared to stop";
+        return "SLOW DOWN!!!!";
     } else {
 
         return "Not valid";
@@ -55,7 +55,7 @@ var color=color.toLowerCase();
             return "GO AHEAD!!";
             break;
         case"orange":
-            return "GET READY TO STOP";
+            return "SLOW DOWN!!!!";
             break;
         default:
             return "INVALID";
@@ -109,31 +109,31 @@ console.log(digitSize("1"));
 
 
 //
-// function message(days) {
-//     var days=days.toLowerCase()
-//     if (days=="monday" || days=="mon"){
-//         return "first day of week";
-//     }
-//     else if (days=="tuesday"|| days=="tues"){
-//         return "taco tuesday";
-//     }else if (days=="wednesday" || days=="wednes"){
-//         return "hump day";
-//     }else if(days=="thursday" || days=="thurs"){
-//     return "weekends are near";
-//     }
-//     else if(days="friday" || days=="fri"){
-//         return"thanks god it is friday";
-//     }else if(days=="saturday" || days=="satur"){
-//         return "happy weekend";
-//     }else if(days=="sunday"|| days=="sun"){
-//         return "sunday is funday";
-//
-//     }else{
-//         return"invalid day";
-//     }
-// }
-// var favDays=prompt("what is your favorite day");
-// alert(message(favDays));
+function message(days) {
+    var days=days.toLowerCase()
+    if (days==="monday" || days==="mon"){
+        return "first day of week";
+    }
+    else if (days==="tuesday"|| days==="tues"){
+        return "taco tuesday";
+    }else if (days==="wednesday" || days==="wednes"){
+        return "hump day";
+    }else if(days==="thursday" || days==="thurs"){
+    return "weekends are near";
+    }
+    else if(days==="friday" || days==="fri"){
+        return"thanks god it is friday";
+    }else if(days==="saturday" || days==="satur"){
+        return "happy weekend";
+    }else if(days==="sunday"|| days==="sun"){
+        return "sunday is funday";
+
+    }else{
+        return"invalid day";
+    }
+}
+var favDays=prompt("what is your favorite day");
+alert(message(favDays));
 
 
 
@@ -154,14 +154,14 @@ console.log(digitSize("1"));
 // alert(text(num));
 
 //####Refractoring using trenary operator######
-function text(input) {
-    var message;
-    (input >= 0 || input <= 0) ? message = "it is number" : message = "it is not a number";
-    return message;
-}
-var num=prompt("Enter your favorite number");
-
-alert(text(num));
+// function text(input) {
+//     var message;
+//     (input >= 0 || input <= 0) ? message = "it is number" : message = "it is not a number";
+//     return message;
+// }
+// var num=prompt("Enter your favorite number");
+//
+// alert(text(num));
 
 
 // Create a function that prompts a user for a season (Spring, Summer, Fall (or Autumn), Winter). The function then alerts
@@ -170,6 +170,36 @@ alert(text(num));
 // - account for any invalid user input
 // - case of input should not matter
 // - accept both abbreviations and full names of the months
+
+function favSeason(season){
+    season=season.toUpperCase();
+    if("season===Spring"){
+        alert("pick your month");
+
+    }
+}
+
+
+
+
+// __
+// GOLD STAR BONUS
+// Create a distance-unit-conversion application.
+//     Prompt the user for unit of measurement.
+//     Prompt the user for a value.
+//     Prompt the user for a second unit of measurement to convert to.
+//     Possibly define multiple functions to convert: inchesToFeet, feetToMiles, milesToLightYears
+// then the opposite versions: lightYearsToMiles, milesToFeet, feetToInches
+// Use these conversion functions to make the correct unit conversion
+// Potentially, you will need a large switch case to account for the possible unit conversions,
+//     i.e. what conversion functions will need to be called in and in what order.
+//     DOUBLE GOLD STAR BONUS
+//     Allow unit conversion to metric system units
+//
+
+
+
+
 
 
 
