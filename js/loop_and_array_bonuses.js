@@ -17,18 +17,18 @@
 // – exampleFunction(arr1, arr2) // returns true
 // problem 1 solved
 
-var shapes=["round","square","rectangle","pentagon","hexagon"];
-
-
-var chooseShape=prompt("choose your shape");
-for(var i=0;i<shapes.length;i++){
-
-    if(shapes[i]===chooseShape){
-
-        alert("shape is found");
-        break;
-    }
-}
+// var shapes=["round","square","rectangle","pentagon","hexagon"];
+//
+//
+// var chooseShape=prompt("choose your shape");
+// for(var i=0;i<shapes.length;i++){
+//
+//     if(shapes[i]===chooseShape){
+//
+//         alert("shape is found");
+//         break;
+//     }
+// }
 
 // problem2 solved
 var daysOfWeek=['sunday','monday','tuesday','wednesday','thursday','friday','saturday'];
@@ -54,16 +54,40 @@ console.log(positionInArray(alphabets,"s"));
 
 // // problem 4
 
-var arr = ['third longish item', 'first item','second item is longer than the third one'
-    ];
-function longestString(array) {
-//
-    var longest="";
-    array.forEach(function(element, index, array) {
-        if (element.length > longest.length) {
-            longest = element;
-        }
-        });
-    return longest;
+// var arr = ['third longish item', 'first item','second item is longer than the third one'
+//     ];
+// function longestString(array) {
+// //
+//     var longest="";
+//     array.forEach(function(element, index, array) {
+//         if (element.length > longest.length) {
+//             longest = element;
+//         }
+//         });
+//     return longest;
+// }
+// console.log(longestString(arr));
+
+
+
+
+// bonues part 2
+// 6.	Write a function that returns the sum of an array of numbers
+// 7.	Create a student roster management app. Using the user dialogue functions (alert, confirm, prompt), create an application that will prompt the user to choose from a menu with the following actions:
+//     1) add a student
+// 2) delete a student
+// 3) view all students in alphabetical order
+// 4) view all students in reverse alphabetical
+
+// problem 6
+
+var arr = [10, 20, 30, 40,80];
+function sum(array) {
+    return array.reduce(function(a,b) {
+        return a + b
+    });
 }
-console.log(longestString(arr));
+console.log(sum(arr));
+
+
+// problem 7

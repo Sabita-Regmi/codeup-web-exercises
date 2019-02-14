@@ -26,12 +26,17 @@ planetsArray=planetsString.split("|");
      */
     console.log(planetsArray.join("<br>"));
 
-    // planetsArray.split('ul')
-    // planetArray.forEach(function(element, index, array) {
-    //     "<li>"+element+"</li>";
-    //
-    // })
-    //
+    planetsArray.unshift("<ul>");
+    console.log(planetsArray);
 
-// console.log(planetArray);
+  var planetArray= planetsArray.join("<li>");
+    console.log(planetArray);
+
+var planetArray=planetArray.split(",");
+console.log(planetArray);
+planetArray.push("</ul>");
+console.log(planetArray);
+
+
+
  })();
