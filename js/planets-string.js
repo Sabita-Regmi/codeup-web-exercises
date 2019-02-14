@@ -34,4 +34,4 @@ planetsArray=planetsString.split("|");
     //
 
 // console.log(planetArray);
-// })();
+ })();
