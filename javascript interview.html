@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lan="en">
+<head>
+
+</head>
+<body>
+<div>
+<h3>What is the difference between a parameter and an argument?</h3>
+<p>
+    A parameter is a variable in a method definition. When a method is called, the arguments are the data you pass into the method's
+    parameters.
+    Consider the following function-<br>
+
+    var test=function(a,b){<br>
+    console.log(a);//prints 10<br>
+    console.log(arguments[0]);//prints 10<br>
+    }<br>
+    test(10,20);<br>
+    So, a and b are parameters. and arguments is the array like indexed object that is created when you invoke the function.
+
+
+
+
+</p>
+</div>
+<div>
+    <h3>When would you use a switch statement or ternary operator over another conditional? Why?</h3>
+    <p>
+        The conditional (ternary) operator is the only JavaScript operator that takes three operands. This operator is frequently
+        used as a shortcut for the if statement.</p>
+    <p>
+        The performance difference between a switch and if...else if...else is small, they basically do the same work. One difference between them that may make a difference is that the expression to test is only evaluated once in a switch while it's evaluated for each if. If it's costly to evaluate the expression, doing it one time is of course faster than doing it a hundred times.
+
+        The difference in implementation of those commands (and all script in general) differs quite a bit between browsers. It's common to see rather big performance differences for the same code in different browsers.
+
+        As you can hardly performance test all code in all browsers, you should go for the code that fits best for what you are doing, and try to reduce the amount of work done rather than optimising how it's done.
+    </p>
+    <p>
+
+    </p>
+</div>
+<div>
+    <h3>What are the pros and cons of using a callback function vs. an anonymous function in a higher order function?</h3>
+    <p>
+        <strong>Pros:</strong><br>
+        Flexibility. An asynchronous function with a callback parameter could be reached by one of many different code paths and it could be harried to have to write a named function to account for every single possible edge case.
+        Speed. It plays heavily in to the hacker mentality. Bolt things on to it until it works.
+        Everyone else is doing it
+        Smaller file sizes, even if trivially so, but every bit counts on the web.
+        Simpler AST? I would assume that anonymous functions are generated at runtime and so the JIT won't muck about with mapping the name to instructions, but I'm just guessing at this point.
+        Quicker dispatching? Not sure about this one either. Guessing again.<br>
+        <strong>CONS:</strong><br>
+        It's hideous and unreadable
+        It adds to the confusion when you're nested nuts deep in a swamp of callbacks (which, to be fair, probably means you're writing poorly constructed code to begin with, but it's quite common).
+        For someone without a functional background it can be a bizarre concept to grok
+        With so many modern browsers showing the ability to execute JavaScript code much faster than before, I'm failing to see how any trivial sort of performance gain one might get out using anonymous callbacks would be a necessity. It seems that, if you are in a situation where using a named function is feasible (predictable behavior and path of execution) then there would be no reason not to.
+
+        So are there any technical reasons or gotchas that I'm not aware of that makes this practice so commonplace for a reason?
+
+
+    </p>
+</div>
+<div>
+    <h3>Why use one loop type over another? (compare while, do-while, for, and forEach)</h3>
+</div>
+<div>
+    <h3>Why write automated tests for software?</h3>
+    <p>
+        Every software development group tests its products, yet delivered software always has defects. Test engineers strive to catch them before the product is released but they always creep in and they often reappear, even with the best manual testing processes. Test Automation software is the best way to increase the effectiveness, efficiency and coverage of your software testing.
+
+        Manual software testing is performed by a human sitting in front of a computer carefully going through application screens, trying various usage and input combinations, comparing the results to the expected behavior and recording their observations. Manual tests are repeated often during development cycles for source code changes and other situations like multiple operating environments and hardware configurations.
+
+        An automated testing tool is able to playback pre-recorded and predefined actions, compare the results to the expected behavior and report the success or failure of these manual tests to a test engineer. Once automated tests are created they can easily be repeated and they can be extended to perform tasks impossible with manual testing. Because of this, savvy managers have found that automated software testing is an essential component of successful development projects.
+
+        Automated software testing has long been considered critical for big software development organizations but is often thought to be too expensive or difficult for smaller companies to implement. SmartBear’s Tools are affordable enough for single developer shops and yet powerful enough that our customer list includes some of the largest and most respected companies in the world.
+    </p>
+</div>
+<div>
+    <h3> How are arrays useful in programming?</h3>
+    <p>
+        When a program manipulates many variables that contain “similar” forms of data,organizational problems quickly arise. Here is an example: In an ice-skaking compe-tition, each skater’s performance is judged by six judges, who assign fractional scores.The six scores must be collected and manipulated in various ways, e.g., printed fromhighest to lowest, averaged, multiplied by weighting factors, and so on.Say that the six scores are saved in these variables,
+        double score0; double score1; double score2;double score3; double score4; double score5;
+        and say that you must write a method that locates and prints the highest score of the six. How will you do this? Alas, the method you write almost certainly will usea sequence of conditional statements, like this
+    </p>
+</div>
+<div>
+    <h3>Why use an array vs. an object and vice versa?</h3>
+    <p>
+        I'd use an Array [] when I'm dealing with a list of objects the same type* (like a list of strings) that I want the order of and an Object {} when I'm dealing with something that I want properties of (and the properties are of different types, usually).
+
+        For example:<br>
+
+        var numberNames = ["one","two","three","four"];<br>
+
+        var computer = {<br>
+        motherBoard : "mother",<br>
+        psu : psu_object(),<br>
+        ram : {<br>
+        ram1 : GB,<br>
+        ram2 : TwoGB<br>
+        }<br>
+        };<br>
+        * This is just my preference. Arrays can contain elements of multiple different types.<br>
+    </p>
+    <p>
+        Use an array when you want to store a collection of objects that are of one type and that logically belong together.
+
+        Is there something specific you were wondering about?
+
+        Arrays are useful when you want to operate on all related items (looping), accessing items by index and for sorting.
+    </p>
+    <p>
+        Objects keys are strings; array keys are integers. JavaScript objects are maps (String -> anything) and arrays are lists (ordered collections ofanything).
+    </p>
+    <p>
+        You often use arrays when you have a series of related items that you want ordered and indexed.
+    </p>
+</div>
+<div>
+    <h3>
+        What is the difference between a method and a function?</h3>
+    <p>A function is a piece of code that is called by name. It can be passed data to operate on (i.e. the parameters) and can optionally return data (the return value). All data that is passed to a function is explicitly passed.
+
+       <br> A method is a piece of code that is called by a name that is associated with an object. In most respects it is identical to a function except for two key differences:
+
+        A method is implicitly passed the object on which it was called.<br>
+        A method is able to operate on data that is contained within the class (remembering that an object is an instance of a class - the class is the definition, the object is an instance of that data).<br>
+    </p>
+</div>
+<div>
+    <h3>What testing framework did you have exposure to at Codeup? What kind of tests were you writing?</h3>
+    <p>jasmine....<br>
+        Jasmine aims to be easy to read. A simple hello world test looks like the code below, where describe() describes a suite of tests and it() is an individual test specification. The name "it()" follows the idea of behavior-driven development and serves as the first word in the test name, which should be a complete sentence. Usage follows syntax similar to that of RSpec.
+
+        The code below tests this function<br>
+
+        function helloWorld() {<br>
+        return 'Hello world!';<br>
+        }<br>
+        and verifies that its output is indeed the text "Hello world!".<br>
+
+        describe('Hello world', function() {<br>
+        it('says hello', function() {<br>
+        expect(helloWorld()).toEqual('Hello world!');<br>
+        });<br>
+        });<br>
+        <strong>Jasmine comes with test doubles by using spies.<br></strong>
+        <strong>Jasmine has a command line utility to run tests.<br></strong>
+        <strong>Jasmine has assertions built into it.</strong><br>
+        <h5>Advantages</h5>
+    <p>
+        The aim of Jasmine is to be browser, framework, platform and language independent.
+        Besides behavioral driven development, Jasmine also supports test driven development.
+    </p>
+
+    </p>
+    <br>
+    <p>
+        Jasmine is one of the popular JavaScript unit testing frameworks which is capable of testing synchronous and asynchronous JavaScript code. It is used in BDD (behavior-driven development) programming which focuses more on the business value than on the technical details. In this Jasmine tutorial, we will learn Jasmine framework in detail from setup instructions to understanding output of testcases.
+
+
+    </p>
+</div>
+</body>
+</html>

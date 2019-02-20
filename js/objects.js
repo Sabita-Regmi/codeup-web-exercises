@@ -15,7 +15,7 @@ var person={
     firstName:"sabita",
     lastName:"regmi",
     sayHello:function(){
-        return "Hello from "+ person.firstName +" "+ person.lastName;
+        return "Hello from "+ this.firstName +" "+ this.lastName;
     }
     };
     console.log(person.firstName);
@@ -57,7 +57,7 @@ shoppers.forEach(function(shopper){
        console.log("CONGRATULATIONS!! YOUR GOT THE DISCOUNT OF " + discount + ". YOUR PRICE BEFORE DISCOUNT WAS " +
        shopper.amount +". NOW YOUR PRICE IS "+ totalAmount);
     }else{
-        console.log("SORRY"+ shopper.name +"YOU GOT NO DISCOUNT" + "YOUR TOTAL AMOUNT IS" + shopper.aomunt);
+        console.log("SORRY "+ shopper.name +"YOU GOT NO DISCOUNT " + "YOUR TOTAL AMOUNT IS " + shopper.amount);
     }
 
     });
@@ -126,9 +126,9 @@ var books=[
      *      ...
      */
 books.forEach(function(book,index){
-console.log("Book#" + (index+1));
-console.log("Title:"+ book.title);
-console.log("Author:"+ book.author.firstName + " "+ book.author.lastName);
+console.log("Book # " + (index+1));
+console.log("Title: "+ book.title);
+console.log("Author: "+ book.author.firstName + " "+ book.author.lastName);
 });
     /**
      * Bonus:
