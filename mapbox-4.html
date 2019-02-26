@@ -1,0 +1,59 @@
+<!--Mini - Exercise 4-->
+
+<!--Create an HTML file called mapbox-4.html centered on San Antonio that programmatically is re-centered over Zion National Park using the coordinates of the park by geocoding the physical address.-->
+
+<!--Add the latitude and longitude of Honolulu, Hawaii and use reverse geocoding to move the map to this location.-->
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+
+</head>
+<body>
+<div id='map' style='width: 100%; height: 400px;'></div>
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+<script src="js/keys.js"></script>
+<script src="js/mapbox-geocoder-utils.js"></script>
+<script>
+mapboxgl.accessToken = secretKeys;
+
+
+
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v9',
+    zoom:9,
+    center:[-98.4916,29.4252]
+
+});
+var zion="1 Zion Park Blvd. Springdale, UT 84767";
+setTimeout(function() {
+    geocode('zion', secretKeys).then(function (data) {
+        map.setCenter(data);
+        map.setZoom(8);
+        console.log(data);
+
+    });
+},4000);
+//
+// setTimeout(function() {
+//     reverseGeocode(({lat: 21.03069,lng: -157.8583}),secretKeys).then(function (data) {
+//         geocode(data,secretKeys).then(function(value) {
+//             map.setCenter(value);
+//             map.setZoom(5);
+//             console.log(value);
+//
+//         })
+//     });
+// },5000);
+
+</script>
+</body>
+</html>
+<!--21.3069° N, 157.8583° W-->

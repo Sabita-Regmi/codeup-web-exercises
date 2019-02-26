@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lan="en">
+<head>
+
+</head>
+<body>
+<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+
+<div id='map' style='width: 100%; height: 400px;'></div>
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+<script src="js/keys.js"></script>
+<script src="js/mapbox-geocoder-utils.js"></script>
+<script>
+    mapboxgl.accessToken = secretKeys;
+
+
+
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v9',
+        zoom:10,
+          center:[-98.4916,29.4252]
+
+    });
+    setTimeout(function() {
+        map.setZoom(15);
+    },4000);
+    setTimeout(function() {
+        map.setZoom(20);
+    },8000)
+
+
+    var resturants=[
+        {
+        address:"9386 Huebner Rd, San Antonio, TX 78240",
+        popupHTML:"<p>HOT BIRYANI!</p>"
+    },
+        {
+        address:"427 TX-1604 Loop #101, San Antonio, TX 78232",
+        popupHTML:"<p>tarka!</p>"
+    },
+        {
+    address:"427 TX-1604 Loop #101, San Antonio, TX 78232",
+        popupHTML:"<p>HOT cheesecake factory</p>"
+    }
+    ];
+
+    var biryanipot={
+        address:"9386 Huebner Rd, San Antonio, TX 78240",
+        popupHTML:"<p>HOT BIRYANI!</p>"
+
+    }
+
+    function placeMarkerAndPopup(info, token, map) {
+        geocode(biryanipot.address, secretKeys).then(function (data) {
+            var popup = new mapboxgl.Popup()
+                .setHTML(info.popupHTML);
+            var marker = new mapboxgl.Marker()
+                .setLngLat(data)
+                 .addTo(map)
+                .setPopup(popup);
+            // popup.addTo(map);
+
+        });
+    }
+
+    placeMarkerAndPopup(biryanipot, secretKeys, map);
+    ;
+
+    // var tarka={
+    //     address:"427 TX-1604 Loop #101, San Antonio, TX 78232",
+    //     popupHTML:"<p>HOT BIRYANI!</p>"
+    // };
+    // function placeMarkerAndPopup(info, token, map) {
+    //     geocode(tarka.address, secretKeys).then(function (data) {
+    //         var popup = new mapboxgl.Popup()
+    //             .setHTML(info.popupHTML);
+    //         var marker = new mapboxgl.Marker()
+    //             .setLngLat(data)
+    //              .addTo(map)
+    //             .setPopup(popup);
+    //         popup.addTo(map);
+    //
+    //     });
+    // }
+    // placeMarkerAndPopup(tarka, secretKeys, map);
+
+
+
+
+
+</script>
+</body>
+</html>
