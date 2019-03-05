@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+          integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<style>
+.invisible{
+    visibility:hidden;
+}
+.boxed{
+    border:3px solid black;
+    display:inline-block;
+    height:200px;
+    width:200px;
+    float:left;
+    margin :20px;
+}
+    .box1{
+        background-color:red;
+    }
+    .box2{
+        background-color:blue;
+    }
+    .box3{
+        background-color:green;
+    }
+    .button{
+        /*display:inline-block;*/
+    }
+</style>
+
+
+</head>
+<h2 id=timeHeading class="alert alert-warning alert-dismissible" role="alert" >Register for site!!</h2>
+<!--<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+
+<button id="btn1" type="submit">answer here</button>
+<body>
+<div id="newspaper">
+    <h1>"Would you like to sign up for our newsletter?<span>X</span></h1>
+
+</div>
+<h1>FAQ about National park</h1>
+
+<dl>
+    <dt>Beast of Bodmin</dt>
+    <dd >A large feline inhabiting Bodmin Moor.</dd>
+
+    <dt>Morgawr</dt>
+    <dd >A sea serpent.</dd>
+
+    <dt>Owlman</dt>
+    <dd >A giant owl-like creature.</dd>
+
+    <dt>Beast of Bodmin</dt>
+    <dd >A large feline inhabiting Bodmin Moor.</dd>
+
+    <dt>Morgawr</dt>
+    <dd >A sea serpent.</dd>
+
+    <dt>Owlman</dt>
+    <dd >A giant owl-like creature.</dd>
+
+    <dt>Beast of Bodmin</dt>
+    <dd >A large feline inhabiting Bodmin Moor.</dd>
+
+    <dt>Morgawr</dt>
+    <dd >A sea serpent.</dd>
+
+    <dt>Owlman</dt>
+    <dd >A giant owl-like creature.</dd>
+
+
+    <dt>Beast of Bodmin</dt>
+    <dd>A large feline inhabiting Bodmin Moor.</dd>
+
+
+</dl>
+
+<h3>National Parks</h3>
+<ul id="national-parks">
+    <li>Arches</li>
+    <li>Badlands</li>
+    <li>Carlsbad Caverns</li>
+    <li>Denali</li>
+    <li>Everglades</li>
+</ul>
+<h3>State Parks of Texas</h3>
+<ul id="state-parks-texas">
+    <li>Abilene</li>
+    <li>Big Bend</li>
+    <li>Choke Canyon</li>
+    <li>Davis Mountains</li>
+    <li>Enchanted Rock</li>
+</ul>
+<h3>progamming language</h3>
+<ul id="programming-language">
+    <li>Linux</li>
+    <li>Apache</li>
+    <li>MySQL</li>
+    <li>PHP</li>
+    <li>Javascript</li>
+</ul>
+
+<!--<button id="btn2" type="submit">change color</button>-->
+
+
+<!--<div>-->
+<!--<div class="boxed box1">-->
+
+
+<!--</div>-->
+    <!--<button id="btn3" class="button" type="submit">button</button>-->
+<!--</div>-->
+<!--<div>-->
+<!--<div class="boxed box2">-->
+
+<!--</div>-->
+    <!--<button id="btn4" type="submit">button</button>-->
+<!--</div>-->
+
+<!--<div>-->
+<!--<div class="boxed box3">-->
+
+<!--</div>-->
+    <!--<button id="btn5" type="submit">button</button>-->
+<!--</div>-->
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+        integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+<script>
+    "use strict";
+
+    $(document).ready(function() {
+        //adding class
+        // $("dd").addClass("invisible");
+
+        //toggling classes on and off
+        $('#btn1').click(function(){
+            $("dd").toggleClass('invisible');
+
+
+        });
+
+    //bonus part:
+    $("dt").click(function(){
+            $(this).css("background-color","red");
+        });
+
+//traversing
+        //Create a button that, when clicked, makes the last li in each ul have a yellow background.
+        $("#btn2").click(function() {
+            $('ul').each(function (index, element) {
+                $(element).children().last().css('background-color', '#FF0');
+            })
+        });
+
+        // When any h3 is clicked, the lis underneath it should be bolded. Use font-weight: bold to achieve
+        // this.
+        $('h3').click(function () {
+            $(this).next().children().css('font-weight', 'bold');
+        });
+
+
+            // When any list item is clicked, first li of the parent ul should have a font color of blue.
+        $('li').click(function () {
+            $(this).parent().children().first().css('color', 'blue');
+        });
+
+
+        //Effect Exercise
+    //     //At the top of the page, add a div with two elements, an h1 that reads "Would you like to sign up for our newsletter?" and a span that has an 'x' in it. When the 'x' is clicked, hide the entire div element.
+
+    //
+        $("#newspaper").children().children().click(function() {
+            $("#newspaper").hide();
+        });
+
+        //The uls next to each h3 that contain facts about each park should start out hidden, and when the corresponding h3 is clicked, the display of the ul should be toggled with a sliding effect.
+        $("ul").hide();
+        $("h3").click(function() {
+            $(this).next().slideToggle();
+        });
+
+        // After the user has been on the page for 8 seconds, an h2 should fade in that asks the user to register for the site.
+        $('#timeHeading').hide().delay(8000).fadeIn(1000);
+     });
+
+</script>
+</body>
+</html>
