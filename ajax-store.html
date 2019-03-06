@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Store</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+          integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+</head>
+<body class="container">
+
+<h1 class="text-center jumbotron text-primary mt-5">My Tool Store</h1>
+<div class="row text-center">
+<table id="products" class="table table-striped">
+    <thead class="thead-dark text-center">
+        <tr class="text-center">
+            <th>Title</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Categories</th>
+        </tr>
+    </thead>
+    <tbody id="insertProducts"></tbody>
+</table>
+</div>
+<div class="row text-center">
+<button type="submit" class="btn-primary" id="btn">refresh</button>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+        integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+
+
+<script>
+(function() {
+     "use strict";
+
+
+    // TODO: Create an ajax GET request for /data/inventory.json
+
+    var response=$.ajax("data/inventory.json");
+
+
+    // TODO: Take the data from inventory.json and append it to the products table
+
+    response.done(function(data){
+        for(var i=0;i<data.length;i++) {
+
+            $("#insertProducts").append(("<tr>"+"<td>"+(data[i].title)+"</td>")+("<td>"+(data[i].quantity)+"</td>"+("<td>"+(data[i].price)+"</td>"+("<td>"+(data[i].categories)+"</td>"+"</tr>"))));
+        }
+         $("#btn1").click(function(e){
+        reload(response);
+        //
+         });
+
+
+
+
+
+    });
+
+
+
+
+    //       HINT: Your data should come back as a JSON object; use console.log() to inspect
+    //             its contents and fields
+    //       HINT: You will want to target #insertProducts for your new HTML elements
+
+})();
+
+</script>
+
+</body>
+</html>

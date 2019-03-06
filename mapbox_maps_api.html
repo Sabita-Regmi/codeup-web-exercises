@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lan="en">
 <head>
-
+    <title>map-box api</title>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
 </head>
 <body>
-<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
 
-<div id='map' style='width: 100%; height: 400px;'></div>
+
+<div id='map' style='width:800px; height: 800px;'></div>
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
 <script src="js/keys.js"></script>
 <script src="js/mapbox-geocoder-utils.js"></script>
@@ -22,97 +23,39 @@
           center:[-98.4916,29.4252]
 
     });
-    setTimeout(function() {
-        map.setZoom(15);
-    },4000);
-    setTimeout(function() {
-        map.setZoom(20);
-    },8000)
 
 
-    var resturants=[
+    var eats = [
         {
-        address:"9386 Huebner Rd, San Antonio, TX 78240",
-        popupHTML:"<p>HOT BIRYANI!</p>"
-    },
+            name: 'Silo',
+            address: 'Silo: Elevated Cuisine, San Antonio, TX',
+            message: 'It\'s great!'
+        },
         {
-        address:"427 TX-1604 Loop #101, San Antonio, TX 78232",
-        popupHTML:"<p>tarka!</p>"
-    },
+            name: 'Chama Gaucha Steakhouse',
+            address: 'Chama Gaucha Steakhouse, San Antonio, TX',
+            message: 'Too good!'
+        },
         {
-    address:"427 TX-1604 Loop #101, San Antonio, TX 78232",
-        popupHTML:"<p> cheesecake factory</p>"
-    }
+            name: 'Tarka Indian Kitchen',
+            address: 'Tarka Indian Kitchen, San Antonio, TX',
+            message: 'Awesome!'
+        }
     ];
-
-    var biryanipot={
-        address:"9386 Huebner Rd, San Antonio, TX 78240",
-        popupHTML:"<p>HOT BIRYANI!</p>"
-
-    }
-
-    function placeMarkerAndPopup(info, token, map) {
-        geocode(biryanipot.address, secretKeys).then(function (data) {
+    function placeMarkerAndPopup(eatObj, secretKeys, map) {
+        return geocode(eatObj.address, secretKeys).then(function(coordinates) {
             var popup = new mapboxgl.Popup()
-                .setHTML(info.popupHTML);
-            var marker = new mapboxgl.Marker()
-                .setLngLat(data)
-                 .addTo(map)
+                .setHTML('<h3>' + eatObj.name + '</h3><p>' + eatObj.message + '</p>');
+            return marker = new mapboxgl.Marker()
+                .setLngLat(coordinates)
+                .addTo(map)
                 .setPopup(popup);
-            // popup.addTo(map);
-
         });
     }
+    for (var i = 0; i < eats.length; i += 1) {
+        placeMarkerAndPopup(eats[i], secretKeys, map);
+    }
 
-    placeMarkerAndPopup(biryanipot, secretKeys, map);
-
-
-//justin's solution
-    // var token = mapboxToken; // pulled in from keys.js
-    // var searchPlace = 'San Antonio';
-    // mapboxgl.accessToken = token;
-    // geocode(searchPlace, token).then(function(results) {
-    //     var map = new mapboxgl.Map({
-    //         container: 'map',
-    //         style: 'mapbox://styles/mapbox/streets-v9',
-    //         zoom: 10,
-    //         center: results
-    //     });
-    //     var eats = [
-    //         {
-    //             name: 'Silo',
-    //             address: 'Silo: Elevated Cuisine, San Antonio, TX',
-    //             message: 'It\'s great!'
-    //         },
-    //         {
-    //             name: 'Chama Gaucha Steakhouse',
-    //             address: 'Chama Gaucha Steakhouse, San Antonio, TX',
-    //             message: 'Too good!'
-    //         },
-    //         {
-    //             name: 'Tarka Indian Kitchen',
-    //             address: 'Tarka Indian Kitchen, San Antonio, TX',
-    //             message: 'Awesome!'
-    //         }
-    //     ];
-    //     function placeMarkerAndPopup(eatObj, token, map) {
-    //         return geocode(eatObj.address, token).then(function(coordinates) {
-    //             var popup = new mapboxgl.Popup()
-    //                 .setHTML('<h3>' + eatObj.name + '</h3><p>' + eatObj.message + '</p>');
-    //             return marker = new mapboxgl.Marker()
-    //                 .setLngLat(coordinates)
-    //                 .addTo(map)
-    //                 .setPopup(popup);
-    //         });
-    //     }
-    //     for (var i = 0; i < eats.length; i += 1) {
-    //         placeMarkerAndPopup(eats[i], token, map);
-    //     }
-    //     // eats.forEach(function(eat) {
-    //     //     placeMarkerAndPopup(eat, token, map);
-    //     // });
-    // });
-    //
 
 
 

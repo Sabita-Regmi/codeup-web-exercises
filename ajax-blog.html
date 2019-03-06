@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+
+</html>
+<head>
+<title>ajax-blog</title>
+
+</head>
+<body>
+<div id="post">
+
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script>
+    (function() {
+        var response=$.ajax("data/blog.json");
+
+        console.log(response);
+        response.done(function(data) {
+            for(var i=0;i<data.length;i++) {
+                console.log(data);
+                $("#post").append("<div>"+data[i].title+data[i].content+data[i].categories+data[i].date+"</div>");
+             }
+        });
+
+
+
+
+
+
+
+
+    })();
+</script>
+
+</body>
