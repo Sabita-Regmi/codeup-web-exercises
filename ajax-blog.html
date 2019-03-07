@@ -5,15 +5,35 @@
 </html>
 <head>
 <title>ajax-blog</title>
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+          integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Srisakdi" rel="stylesheet">
 </head>
-<body>
+<style>
+    .card-body{
+        font-family: 'Srisakdi', cursive;
+        font-size:20px;
+    }
+    .card-header{
+        font-size:25px;
+        font-weight:bold;
+    }
+</style>
+<body class="container">
+<div class="row">
 <div id="post">
 
+    <div id="top"></div>
+</div>
+    <a href="#top">Go to the top of the page</a>
 </div>
 
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>-->
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.js"
+integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+crossorigin="anonymous"></script>
+
 <script>
     (function() {
         var response=$.ajax("data/blog.json");
@@ -22,7 +42,12 @@
         response.done(function(data) {
             for(var i=0;i<data.length;i++) {
                 console.log(data);
-                $("#post").append("<div>"+data[i].title+data[i].content+data[i].categories+data[i].date+"</div>");
+                $("#post").append("<div class='card mt-4 '>"
+                    +"<div class='card-header text-center bg-info pl-0'>"+data[i].title+"</div>"
+                    +"<div class='card-body pl-2'>"+data[i].content+"</div>"
+                    +"<div class='pl-2'>"+data[i].categories+"</div>"
+                    +"<div class='pl-2'>"+data[i].date+"</div>"
+                    +"<hr>"+"</div>");
              }
         });
 

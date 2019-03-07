@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lan="en">
+<head>
+    <title>Restaurant</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
+          integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+</head>
+<body>
+<div id="post">
+
+</div>
+<script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script>
+
+
+
+    "use strict";
+    $(function() {
+        var url="https://frest.glitch.me/restaurants";
+        var response=$.ajax(url);
+        console.log(response);
+        function buildHtml(items) {
+            var html = "";
+            //
+            // items.forEach(function (item) {
+            //     if(item.cuisine_type === "Pizza") {
+            //         html += '<p' + item.cuisine_type + '</p>'
+            //     }
+            //
+            // });
+            for(var i=0;i<items.length;i++){
+                if(items[i].cuisine_type === "Pizza") {
+                             html += '<p' + item[i].cuisine_type + '</p>';
+                         }
+
+            }
+            // return html;
+            console.log(html);
+        }
+        response.done(function(items){
+            $("#post").html(buildHtml(items));
+        });
+
+
+        });
+    </script>
+</body>
+</html>

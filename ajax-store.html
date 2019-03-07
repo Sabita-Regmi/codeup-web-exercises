@@ -12,17 +12,17 @@
 <table id="products" class="table table-striped">
     <thead class="thead-dark text-center">
         <tr class="text-center">
-            <th>Title</th>
-            <th>Quantity</th>
-            <th>Price</th>
-            <th>Categories</th>
+            <th class="text-center">Title</th>
+            <th class="text-center">Quantity</th>
+            <th class="text-center">Price</th>
+            <th class="text-center">Categories</th>
         </tr>
     </thead>
     <tbody id="insertProducts"></tbody>
 </table>
 </div>
 <div class="row text-center">
-<button type="submit" class="btn-primary" id="btn">refresh</button>
+<button type="submit" class="btn-primary" id="refresh">refresh</button>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -47,15 +47,41 @@
     response.done(function(data){
         for(var i=0;i<data.length;i++) {
 
-            $("#insertProducts").append(("<tr>"+"<td>"+(data[i].title)+"</td>")+("<td>"+(data[i].quantity)+"</td>"+("<td>"+(data[i].price)+"</td>"+("<td>"+(data[i].categories)+"</td>"+"</tr>"))));
+
+            $("#insertProducts").append(("<tr>"+"<td>"
+                +(data[i].title)+"</td>")
+                +("<td>"+(data[i].quantity)
+                    +"</td>"+("<td>"+(data[i].price)
+                        +"</td>"+("<td>"
+                            +(data[i].categories)
+                            +"</td>"+"</tr>"))));
         }
-         $("#btn1").click(function(e){
-        reload(response);
-        //
+
+
+         $("#refresh").click(function() {
+             // reload(response);
+
+             //
+             response = $.ajax("data/inventory.json");
+
+             response.done(function (data) {
+                 for (var i = 0; i < data.length; i++)  {
+
+
+                     $("#insertProducts").append(("<tr>" + "<td>"
+                         + (data[i].title) + "</td>")
+                         + ("<td>" + (data[i].quantity)
+                             + "</td>" + ("<td>" + (data[i].price)
+                                 + "</td>" + ("<td>"
+                                     + (data[i].categories)
+                                     + "</td>" + "</tr>"))));
+                                     }
+
+
+             });
+
+
          });
-
-
-
 
 
     });
