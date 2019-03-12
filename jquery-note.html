@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lan="en">
+<head>
+<title>JQUERY NOTE</title>
+</head>
+<body>
+==========================================================================<br>
+jQuery
+--------------------------------------------------------------------------<br>
+
+$(document).ready(function() {  <br>
+
+});<br><br>
+
+<br>
+==========================================================================<br>
+jQuery Selectors<br>
+--------------------------------------------------------------------------<br>
+<br>
+ID<br>
+$(‘#id’)<br>
+
+Class<br>
+$(‘.class’)<br>
+
+Element<br>
+$(‘element’)<br>
+
+Multiple Selectors<br>
+$(‘selector1, selector2’)<br>
+
+All<br>
+#(‘*’)<br>
+
+
+==========================================================================<br>
+jQuery Mouse Events<br>
+--------------------------------------------------------------------------<br>
+
+Vanilla JS:<br>
+var ele = document.getElementById(‘myElement’)<br>
+ele.addEventListener(‘click’, function(e) {<br>
+//insert code here<br><br>
+});<br>
+
+jQuery:<br>
+$(selector).click(function() {<br>
+//insert code here<br>
+});<br>
+
+.click<br>
+.dblclick<br>
+.hover	or	.mouseenter + .mouseleave<br>
+
+
+==========================================================================<br>
+jQuery Keyboard Events<br>
+--------------------------------------------------------------------------<br>
+
+.keydown	-works for any key<br>
+.keypress	-does not include modifier keys (shift, ctrl, esc)<br>
+.keyup		-triggers when key is released<br>
+.on
+.off<br>
+
+<br><br><br>
+==========================================================================<br>
+jQuery Attribute Methods<br>
+--------------------------------------------------------------------------<br>
+
+.html()<br><br>
+.css()<br><br>
+.addClass()<br><br>
+.removeClass()<br><br>
+.toggleClass()<br><br>
+
+
+==========================================================================<br><br>
+jQuery Traversing Methods<br><br>
+--------------------------------------------------------------------------<br><br>
+
+.each()<br><br>
+.first()<br><br>
+.last()<br><br>
+.parent()<br><br>
+.child()<br><br>
+.next()<br><br>
+
+
+==========================================================================<br><br>
+jQuery Effects<br><br>
+--------------------------------------------------------------------------<br><br>
+
+.hide()<br><br>
+.show()<br><br>
+.toggle()<br><br>
+<br><br>
+Animated Effects<br><br>
+
+Fading<br><br>
+.fadeIn()<br><br>
+.fadeOut()<br><br>
+.fadeToggle()<br><br>
+Sliding<br><br>
+.slideUp()<br><br>
+.slideDown()<br><br>
+.slideToggle()<br><br>
+
+
+==========================================================================<br><br>
+JavaScript Object Notation (JSON)<br><br>
+--------------------------------------------------------------------------<br><br>
+
+{}	empty object<br><br>
+[]	empty array<br>
+
+Properties must be in double-quoted strings:<br>
+{
+“prop1”: “value1”,<br>
+“prop2”: “value2<br>
+}
+<br>
+Values can be:<br>
+A quoted string:	“string-here”<br>
+A number:		    3.14<br>
+An object:		    {}<br>
+An array:		    []<br>
+A boolean:		    true or false<br>
+Null:			    null<br>
+
+
+===========================================================================<br>
+Ajax Requests<br>
+---------------------------------------------------------------------------<br>
+
+Jquery simplifies ajax requests. Here is a basic request:<br>
+
+$.ajax("/some-url")<br>
+
+
+
+Here is an ajax request with options:<br>
+
+$.ajax("/some-url"), {<br>
+type: "POST",<br>
+data: {<br>
+name: "John",<br>
+location: "Boston"<br>
+}<br>
+}<br>
+
+Options available:<br>
+
+type:<br>
+"GET", "POST", "PUT", or "DELETE".  Defaults to "GET".<br>
+<br>
+data:<br>
+a JS object (see JSON for formatting external .json files)<br>
+<br>
+dataType:<br>
+type of data expected<br>
+
+url:<br>
+can be specified here instead of passing string to $.ajax<br>
+
+username:<br>
+password:<br>
+when needed for security purposes<br>
+
+headers:<br>
+<!--<some<br>thing complex that needs to be researched>-->
+
+
+
+    Ajax requests are asynchronous, use methods with callback functions like:<br>
+
+    $.ajax("/some-url").done(function(data, status, jqXhr) {<br>
+
+    });<br>
+
+    where   data = data from server<br>
+    status = string indicating status<br>
+    jqXhr = obj representing ajax request<br>
+
+    Code specified in .done executes once the request is processed.<br>
+<br>
+    More ajax methods besides .done:<br>
+    .fail - executes if server returns a 404 error<br>
+    jqXhr<br>
+    status<br>
+    error<br>
+<br>
+    .always<br>
+
+
+    Can be used separately or chained and used a little like a switch<br>
+    statement:<br><br>
+
+<br>
+    $.ajax("/some-url").done(function(data, status, jqXhr) {<br>
+
+    // do this code when a request is successful<br>
+
+
+    )}.fail(function(jqXhr, status, error) {<br>
+
+
+    // do this code if the request fails<br>
+
+
+    )}.always(function () {<br>
+
+
+    // this code will always run with the ajax request<br>
+
+
+    });<br>
+
+
+    Can also be used with named functions:<br>
+
+    function onSuccess(data, status, jqXhr) {<br>
+
+    // display the requested data to the user<br>
+
+    }<br>
+
+
+    function onFail(jqXhr, status, error) {<br>
+
+    // tell the user something went wrong, and to try again later<br>
+
+    }<br>
+
+
+    function stopLoadingAnimation() {<br>
+
+    // the request is no longer pending, hide the loading spinner<br>
+
+    }<br>
+
+
+    $.ajax("/some-url")<br>
+
+    .done(onSuccess)<br>
+
+    .fail(onFail)<br>
+
+    .always(stopLoadingAnimation);<br>
+
+<br>
+
+    ===========================================================================<br>
+
+    REVIEW QUESTIONS<br>
+
+    ---------------------------------------------------------------------------<br>
+
+
+
+
+
+    ---------------------------------------------------------------------------<br>
+
+
+$(document).ready() function is used to prevent code from running, before the document is finished loading<br>
+
+---------------------------------------------------------------------------<br>
+noConflict() method should be used to deal with name conflicts<br>
+
+
+---------------------------------------------------------------------------<br>
+
+$("div p") selects All p elements inside a div element<br>
+
+---------------------------------------------------------------------------<br>
+$("p#intro") selects The p element with id="intro"<br>
+
+---------------------------------------------------------------------------<br>
+remove() and detach() method can be used to remove selected elements.<br>
+
+
+The jQuery animate() method can be used to animate ANY CSS property Only properties containing numeric values<br>
+
+
+
+What is jQuery? Why is it useful?<br>
+
+<br>
+
+    What determines if a jQuery method can be chained after another?<br>
+
+
+    How can an event listener be added to multiple elements using jQuery<br>
+
+    where the listener acts upon the specific element the event was trigged on?<br>
+
+
+    What is the difference between .click(callback) and .on('click', callback)?<br>
+
+
+    What is a getter and a setter? What are some methods that can be used<br>
+
+    either way? What is different between a getter and setter version of<br>
+    these methods?<br>
+
+    What is the best way in a single statement to change several style<br>
+    properties for a specific element using jQuery? Why is this the best way?<br>
+
+
+
+</body>
+</html>

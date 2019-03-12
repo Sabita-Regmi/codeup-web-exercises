@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lan="en">
+<head>
+
+</head>
+<body>
+
+
+
+
+
+
+
+<script>
+    // <!--// Exercise 1-->
+    // <!--// The parameter weekday is true if it is a weekday, and the parameter vacation-->
+    // <!--// is true if we are on vacation. We sleep in if it is not a weekday or we're on ' +-->
+    // <!--// 'vacation. Return true if we sleep in.-->
+    // <!--//-->
+    // <!--// Examples-->
+    // <!--//-->
+    // <!--// sleepIn(true, true) → true-->
+    // <!--// sleepIn(true, false) → false-->
+    // <!--// sleepIn(false, true) → true-->
+    //#####solution########### solved
+    // function sleepIn(weekday,vacation){
+    //     if(!weekday ||  vacation)
+    //         return true;
+    //
+    //
+    // }
+    //
+    // console.log(sleepIn(false, true));
+
+
+    // <!--// Exercise 2-->
+    // <!--// Given two int values, return their sum. Unless the two values are the same, then-->
+    // <!--// return double their sum.-->
+    // <!--//-->
+    // <!--//     Examples-->
+    // <!--//-->
+    // <!--// sumDouble(1, 2) → 3-->
+    // <!--// sumDouble(3, 2) → 5-->
+    // <!--// sumDouble(2, 2) → 8-->
+
+    //####solution########## solved
+//     function sumDouble(int1,int2){
+// if (int1===int2) {
+//     return int1 * 2 + int2 * 2;
+// }else{
+// return int1+int2;
+// }
+// }
+//
+// console.log(sumDouble(2, 2));
+// console.log(sumDouble(1, 2));
+
+//
+// <!--// Exercise 3-->
+// <!--// Given an int n, return true if it is within 10 of 100 or 200. Note: Math.abs(num) computes-->
+// <!--// the absolute value of a number.-->
+// <!--//-->
+// <!--//     Examples-->
+// <!--//-->
+// <!--// nearHundred(93) → true-->
+// <!--// nearHundred(90) → true-->
+// <!--// nearHundred(89) → false-->
+    //solved
+
+    // function nearHundred(integer){
+    //     if((Math.abs(100-integer))<=10 || (Math.abs(200-integer)<=10)){
+    //         return true;
+    //     }else{
+    //         return false;
+    //     }
+    //
+    // }
+    //
+    // console.log(nearHundred(93));
+    // console.log(nearHundred(89));
+
+    // <!--// Exercise 4-->
+// <!--// Given a string and a non-negative int n, return a larger string that is n copies of the original-->
+// <!--// string.-->
+// <!--//-->
+// <!--//     Examples-->
+// <!--//-->
+// <!--// stringTimes('Hi', 2) → HiHi-->
+// <!--// stringTimes('Hi', 3) → HiHiHi-->
+// <!--// stringTimes('Hi', 1) → Hi-->
+//######solved##########
+//     function stringTimes(string,int){
+//         int=parseInt(int);
+//         toString(string);
+//         return string.repeat(int);
+//
+//     }
+//
+// console.log(stringTimes("hi", 3));
+
+
+// <!--// Exercise 5-->
+// <!--// Return the number of times that the string "hi" appears anywhere in the given string.-->
+// <!--//-->
+// <!--//     Examples-->
+// <!--//-->
+// <!--// countHi('abc hi ho') → 1-->
+// <!--// countHi('ABChi hi') → 2-->
+// <!--// countHi('hihi') → 2-->
+
+//#########    solved ############
+//     function countHi(str, char) {
+//         var start = 0;
+//         var count = 0;
+//         while((start = str.indexOf(char, start)+1) !== 0) {
+//             count++;
+//         }
+//         return count;
+//     }
+//     console.log(countHi('abc hi ho','hi'));
+//     console.log(countHi('ABChi hi','hi'));
+
+    // <!--// Exercise 6-->
+// <!--// Return true if the string "cat" and "dog" appear the same number of times in the given-->
+// <!--// string.-->
+// <!--//-->
+// <!--//     Examples-->
+// <!--//-->
+// <!--// catDog('catdog') → true-->
+// <!--// catDog('catcat') → false-->
+// <!--// catDog('1cat1cadodog') → true-->
+//########solved###############
+    function catDog (str) {
+        var catCount = 0;
+        var dogCount = 0;
+
+        for (var i = 0; i < str.length; i++) {
+            if(str.substring(i, i+3) == "cat") {
+                catCount += 1;
+            }
+            if(str.substring(i, i+3) == "dog") {
+                dogCount += 1;
+            }
+
+        }
+        if (catCount=== dogCount){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    console.log(catDog('catdog'));
+    console.log(catDog('1cat1cadodog'));
+    console.log(catDog('catcat'));
+
+    // <!--// Exercise 7-->
+// <!--// Return the number of times that the string "code" appears anywhere in the given string,-->
+// <!--//     except we'll accept any letter for the 'd', so "cope" and "cooe" count.-->
+// <!--//-->
+// <!--// Examples-->
+// <!--//-->
+// <!--// countCode('aaacodebbb') → 1-->
+// <!--// countCode('codexxcode') → 2-->
+// <!--// countCode('cozexxcope') → 2-->
+//########solved##############
+function countCode(string){
+    var count=0;
+   for(var i=0;i<string.length;i++){
+       if(string.substring(i,i+4)==="code"){
+           count=count+1;
+       }
+
+
+    }
+    return count;
+}
+
+console.log(countCode('aaacodebbb'));
+console.log(countCode('codexxcode'));
+    console.log(countCode('cozexxcope'));
+
+
+    // <!--// Exercise 8-->
+// <!--// Given an array of ints, return true if 6 appears as either the first or last element in the array.-->
+// <!--//     The array will be length 1 or more.-->
+// <!--//-->
+// <!--//     Examples-->
+// <!--//-->
+// <!--// firstLast6([1, 2, 6]) → true-->
+// <!--// firstLast6([6, 1, 2, 3]) → true-->
+// <!--// firstLast6([13, 6, 1, 2, 3]) → false-->
+//#####solved#######
+// function firstLast6(array){
+// if (array[0]===6 || array[array.length-1]===6){
+//     return true;
+// }else{
+//     return false;
+// }
+// }
+//
+// console.log(firstLast6([1, 2, 6]));
+// console.log(firstLast6([13, 6, 1, 2, 3]));
+
+
+
+    // <!--// Exercise 9-->
+    // <!--// Given an array of ints, return true if the array is length 1 or more, and the first element and-->
+    // <!--// the last element are equal.-->
+    // <!--//-->
+    // <!--//     Examples-->
+    // <!--//-->
+    // <!--// sameFirstLast([1, 2, 3]) → false-->
+    // <!--// sameFirstLast([1, 2, 3, 1]) → true-->
+    // <!--// sameFirstLast([1, 2, 1]) → true-->
+//######solved##########
+    function sameFirstLast(array){
+        if((array.length>=1) && (array[0]===array[array.length -1])){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    console.log(sameFirstLast([1, 2, 3]));
+    console.log(sameFirstLast([1, 2, 3, 1]));
+
+    //
+    // <!--// Exercise 10-->
+    // <!--// Return an int array length 3 containing the first 3 digits of pi, {3, 1, 4}.-->
+    //
+    function piToDigit(pi){
+        var pi=3.14;
+        pi=toString(pi);
+        // pi=split(pi);
+return pi;
+    }
+    console.log(piToDigit());
+    //
+    // <!--// Exercise 11-->
+    // <!--// Given 2 arrays of ints, a and b, return true if they have the same first element or they have the same-->
+    // <!--// last element. Both arrays will be length 1 or more.-->
+    // <!--//-->
+    // <!--//     Examples-->
+    // <!--//-->
+    // <!--// commonEnd([1, 2, 3], [7, 3]) → true-->
+    // <!--// commonEnd([1, 2, 3], [7, 3, 2]) → false-->
+    // <!--// commonEnd([1, 2, 3], [1, 3]) → true-->
+    //####solved########
+function commonEnd(arr1,arr2){
+    if((arr1[0]===arr2[0]) || arr1[arr1.length-1]===arr2[arr2.length-1]){
+        return true
+
+    }else{
+        return false;
+    }
+}
+
+    console.log(commonEnd([1, 2, 3], [7, 3]));
+    console.log(commonEnd([1, 2, 3], [1, 3]));
+    console.log(commonEnd([1, 2, 3], [7, 3, 2]));
+
+
+    // <!--// Exercise 12-->
+    // <!--// Given an array of scores, return true if each score is equal or greater than the one before. The array will be length 2 or more.-->
+    // <!--//-->
+    // <!--//     Examples-->
+    // <!--//-->
+    // <!--// scoresIncreasing([1, 3, 4]) → true-->
+    // <!--// scoresIncreasing([1, 3, 2]) → false-->
+    // <!--// scoresIncreasing([1, 1, 4]) → true-->
+//********confusion***********
+    function scoresIncreasing(arr){
+        for(var i=0;i<arr.length;i++){
+            if(arr[i]!=arr[i-1] &&( arr[i] < arr[i-1])){
+                return false;
+            }else{
+                return true;
+            }
+        }
+
+    }
+
+    console.log(scoresIncreasing([1, 3, 2]));
+    console.log(scoresIncreasing([1, 3, 4]));
+    console.log(scoresIncreasing([1, 1, 4]));
+
+
+    // <!--//Exercise 13-->
+    // <!--// The squirrels in Palo Alto spend most of the day playing. In particular, they play if the temperature is between 60 and 90 (inclusive).-->
+    // <!--//     Unless it is summer, then the upper limit is 100 instead of 90. Given an int temperature and a boolean isSummer, return true if the squirrels play and false otherwise.-->
+    // <!--//-->
+    // <!--//     Examples-->
+    // <!--//-->
+    // <!--// squirrelPlay(70, false) → true-->
+    // <!--// squirrelPlay(95, false) → false-->
+    // <!--// squirrelPlay(95, true) → true-->
+
+    //###########solved###########
+    function squirrelPlay(temperature,summer){
+        if(!summer && (temperature>=60 && temperature<=90)){
+            return true;
+        }
+        if(summer && (temperature>-60 && temperature<=100)){
+            return true;
+        }
+        else{
+            return false;
+        }
+
+    }
+
+    console.log(squirrelPlay(70, false));
+    console.log(squirrelPlay(95, false));
+    console.log(squirrelPlay(95, true));
+
+    // <!--// Exercise 14-->
+    // <!--// Given two strings, return true if either of the strings appears at the very end of the other string,
+    // ignoring upper/lower case differences (in other words, the computation should not be "case sensitive").
+    // Note: str.toLowerCase() returns the lowercase version of a string.-->
+    // <!--//-->
+    // <!--//     Examples-->
+    // <!--//-->
+    // <!--// endOther('Hiabc', 'abc') → true-->
+    // <!--// endOther('AbC', 'HiaBc') → true-->
+    // <!--// endOther('abc', 'abXabc') → true-->
+
+    //******confusion***********
+    function endOther(str1,str2){
+
+
+    }
+
+    // !--// Exercise 16-->
+    // <!--// Given an array of ints length 3, return the sum of all the elements.-->
+    // <!--//-->
+    // <!--//     Examples-->
+    // <!--//-->
+    // <!--// sum3([1, 2, 3]) → 6-->
+    // <!--// sum3([5, 11, 2]) → 18-->
+    // <!--// sum3([7, 0, 0]) → 7-->
+    //#######solved###########
+// function sum3(arr){
+// var sum=0;
+// for(var i=0;i<arr.length;i++){
+//    if(arr.length==3){
+//        sum=sum+arr[i];
+//    }
+// }
+//    return sum;
+// }
+//
+//     console.log(sum3([1, 2, 3]));
+//     console.log(sum3([5, 11,1]));
+//     console.log(sum3([10, 1, 0]));
+
+
+    // <!--// Exercise 17-->
+    // <!--// Given an array of ints length 3, return an array with the elements "rotated left" so {1, 2, 3} yields {2, 3, 1}.-->
+    // <!--//-->
+    // <!--// Examples-->
+    // <!--//-->
+    // <!--// rotateLeft3([1, 2, 3]) → 2,3,1-->
+    // <!--// rotateLeft3([5, 11, 9]) → 11,9,5-->
+    // <!--// rotateLeft3([7, 0, 0]) → 0,0,7-->
+    //#######solved###########
+function rotateLeft3(arr) {
+    var result = [];
+    result[0] = arr[1];
+    result[1] = arr[2];
+    result[2] = arr[0];
+    return result;
+}
+
+    console.log(rotateLeft3([1, 2, 3]));
+    console.log(rotateLeft3([5, 11, 9]));
+
+    //
+    // <!--// Exercise 18-->
+    // <!--// Return the number of even ints in the given array. Note: the % "mod" operator computes the remainder, e.g. 5 % 2 is 1.-->
+    // <!--//-->
+    // <!--// Examples-->
+    // <!--//-->
+    // <!--// countEvens([2, 1, 2, 3, 4]) → 3-->
+    // <!--// countEvens([2, 2, 0]) → 3-->
+    // <!--// countEvens([1, 3, 5]) → 0-->
+
+    //#########solved############
+    // function countEvens(array){
+    //     var count=0
+    // for(var i=0;i<array.length;i++){
+    //     if(array[i]%2===0){
+    //         count=count+1;
+    //     }
+    // }
+    // return count;
+    // }
+    //
+    // console.log(countEvens([2, 1, 2, 3, 4]));
+    // console.log(countEvens([1, 3, 5]));
+
+
+
+    // <!--// Exercise 19-->
+    // <!--// Given an array length 1 or more of ints, return the difference between the largest and smallest values in the array.
+    //     Note: the built-in Math.min(v1, v2) and Math.max(v1, v2) methods return the smaller or larger of two values.-->
+    // <!--//-->
+    // <!--//     Examples-->
+    // <!--//-->
+    // <!--// bigDiff([10, 3, 5, 6]) → 7-->
+    // <!--// bigDiff([7, 2, 10, 9]) → 8-->
+    // <!--// bigDiff([2, 10, 7, 2]) → 8-->
+//#######solved############
+function bigDiff(array) {
+
+    for (var i = 0; i < array.length; i++) {
+        // array=array.toString();
+        var min = Math.min.apply(null,array);
+        var max = Math.max.apply(null,array);
+    }
+    return max-min;
+}
+
+    console.log(bigDiff([10, 3, 5, 6]));
+    console.log(bigDiff([7, 2, 10, 9]));
+
+
+
+
+    // <!--// Exercise 20-->
+    // <!--// You are driving a little too fast, and a police officer stops you. Write code to compute the result,
+    // encoded as an int value: 0=no ticket, 1=small ticket, 2=big ticket. If speed is 60 or less, the result is 0.
+    // If speed is between 61 and 80 inclusive, the result is 1. If speed is 81 or more, the result is 2.
+    // Unless it is your birthday &#45;&#45; on that day, your speed can be 5 higher in all cases.-->
+    // <!--//-->
+    // <!--//     Examples-->
+    // <!--//-->
+    // <!--// caughtSpeeding(60, false) → 0-->
+    // <!--// caughtSpeeding(65, false) → 1-->
+    // <!--// caughtSpeeding(65, true) → 0-->
+    function caughtSpeeding(){
+
+    }
+
+
+
+    //#####monday morning warmup quuestion's solution
+    // function power(base,exponent){
+    //     var product=1;
+    //     for(var i=0;i<exponent;i++){
+    //         product*=base;
+    //     }
+    //     return product;
+    // }
+    //
+    // console.log(power(2, 2));
+    // console.log(power(8, 2));
+    //         or
+    function power(base,exponent){
+        return Math.pow(base,exponent);
+        //or
+        //return base ** exponent;
+    }
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--// Exercise 15-->
+
+
+
+
+
+
+
+<!--// Exercise 20-->
+<!--// You are driving a little too fast, and a police officer stops you. Write code to compute the result, encoded as an int value: 0=no ticket, 1=small ticket, 2=big ticket. If speed is 60 or less, the result is 0. If speed is between 61 and 80 inclusive, the result is 1. If speed is 81 or more, the result is 2. Unless it is your birthday &#45;&#45; on that day, your speed can be 5 higher in all cases.-->
+<!--//-->
+<!--//     Examples-->
+<!--//-->
+<!--// caughtSpeeding(60, false) → 0-->
+<!--// caughtSpeeding(65, false) → 1-->
+<!--// caughtSpeeding(65, true) → 0-->
