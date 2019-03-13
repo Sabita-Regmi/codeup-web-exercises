@@ -42,7 +42,7 @@ const users = [
 //Use .filter to create an array of user objects where each user object has at least 3 languages in the languages array.
 
 
-let languages3=users.filter(n=>n.languages.length>=3);
+let languages3=users.filter(n=>n.languages.length>2);
 console.log(languages3);
 
 
@@ -62,13 +62,13 @@ console.log(totalYear/users.length);
 
 
 //Use reduce to get the longest email from the list of users.
-let longestEmail=users.reduce((emailIds,user)=>{
-    if (user.email.length > emailIds.length) {
+let longestEmail=users.reduce((currentEmail,user)=>{
+    if (user.email.length > currentEmail.length) {
         return user.email;
     }else {
-        return emailIds;
+        return currentEmail;
     }
-}, "");
+}, " ");
 console.log(longestEmail);
 
 // Use reduce to get the list of user's names in a single string.
