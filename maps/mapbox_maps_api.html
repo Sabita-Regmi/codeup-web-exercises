@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lan="en">
+<head>
+    <title>map-box api</title>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+</head>
+<body>
+
+
+<div id='map' style='width:800px; height: 800px;'></div>
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+<script src="js/keys.js"></script>
+<script src="js/mapbox-geocoder-utils.js"></script>
+<script>
+    mapboxgl.accessToken = secretKeys;
+
+
+
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v9',
+        zoom:10,
+        center:[-98.4916,29.4252]
+
+    });
+
+
+    var eats = [
+        {
+            name: 'Silo',
+            address: 'Silo: Elevated Cuisine, San Antonio, TX',
+            message: 'It\'s great!'
+        },
+        {
+            name: 'Chama Gaucha Steakhouse',
+            address: 'Chama Gaucha Steakhouse, San Antonio, TX',
+            message: 'Too good!'
+        },
+        {
+            name: 'Tarka Indian Kitchen',
+            address: 'Tarka Indian Kitchen, San Antonio, TX',
+            message: 'Awesome!'
+        }
+    ];
+    function placeMarkerAndPopup(eatObj, secretKeys, map) {
+        return geocode(eatObj.address, secretKeys).then(function(coordinates) {
+            var popup = new mapboxgl.Popup()
+                .setHTML('<h3>' + eatObj.name + '</h3><p>' + eatObj.message + '</p>');
+            return marker = new mapboxgl.Marker()
+                .setLngLat(coordinates)
+                .addTo(map)
+                .setPopup(popup);
+        });
+    }
+    for (var i = 0; i < eats.length; i += 1) {
+        placeMarkerAndPopup(eats[i], secretKeys, map);
+    }
+
+
+
+
+
+
+</script>
+</body>
+</html>
